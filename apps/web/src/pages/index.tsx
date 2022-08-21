@@ -13,14 +13,23 @@ export default function Web() {
       </Head>
 
       <main className='mx-auto w-auto px-4 pt-16 pb-8 sm:pt-24 lg:px-8'>
-        <h1 className='mx-auto max-w-5xl text-center text-6xl font-extrabold leading-[1.1] tracking-tighter text-white sm:text-7xl lg:text-8xl xl:text-8xl'>
+        <h1 className='mx-auto max-w-5xl text-center text-6xl font-extrabold leading-[1.1] tracking-tighter text-white sm:text-7xl lg:text-8xl xl:text-8xl bg-violet-700'>
           Web <br className='hidden lg:block' />
-          <span className='inline-block bg-gradient-to-r from-brandred to-brandblue bg-clip-text text-transparent'>
+          <span className='inline-block bg-gradient-to-r from-brandred to-red-900 bg-clip-text text-transparent'>
             Turborepo Example
           </span>{' '}
         </h1>
         <div className='mx-auto mt-5 max-w-xl sm:flex sm:justify-center md:mt-8'>
           <Button />
+        </div>
+        <div className='mx-auto mt-5 max-w-xs sm:flex sm:justify-center md:mt-8'>
+          <p className='line-clamp-3 text-yellow-300'>
+            Et molestiae hic earum repellat aliquid est doloribus delectus. Enim
+            illum odio porro ut omnis dolor debitis natus. Voluptas possimus
+            deserunt sit delectus est saepe nihil. Qui voluptate possimus et
+            quia. Eligendi voluptas voluptas dolor cum. Rerum est quos quos id
+            ut molestiae fugit.
+          </p>
         </div>
       </main>
     </div>

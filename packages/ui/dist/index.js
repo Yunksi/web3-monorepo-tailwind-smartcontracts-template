@@ -36,7 +36,7 @@ var Button = () => {
         children: [
           "Read the docs",
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-            className: "ml-2 bg-gradient-to-r from-brandred to-brandblue bg-clip-text text-transparent",
+            className: "ml-2 bg-gradient-to-r from-brandred to-red-900 bg-clip-text text-transparent",
             children: "\u2192"
           })
         ]
