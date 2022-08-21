@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import { Button } from 'ui';
 
-export default function Web() {
+export default function Home() {
   useEffect(() => console.log(process.env.NEXT_PUBLIC_URL), []);
 
   return (
