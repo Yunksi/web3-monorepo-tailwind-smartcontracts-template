@@ -2,6 +2,21 @@
   "name": "web3-monorepo-tailwind-smartcontracts-template",
   "version": "0.0.0",
   "private": true,
+  "repository": "github:Yunksi/web3-monorepo-tailwind-smartcontracts-template.git",
+  "author": "Rok Erjavec <rok.erjavec@t-2.net>",
+  "license": "MIT",
+  "keywords": [
+    "ethereum",
+    "smart-contracts",
+    "template",
+    "starter",
+    "hardhat",
+    "solidity",
+    "nextjs",
+    "typescript",
+    "tailwindcss",
+    "turborepo"
+  ],
   "workspaces": [
     "apps/*",
     "packages/*"
