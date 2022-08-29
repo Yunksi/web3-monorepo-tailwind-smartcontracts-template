@@ -13,7 +13,8 @@
     "lint:fix": "eslint --fix \"**/*.{js,ts}\" && solhint --fix src/**/*.sol",
     "format": "prettier --check \"**/*.{ts,js,sol}\"",
     "format:fix": "prettier --write \"**/*.{ts,js,sol}\"",
-    "clean": "hardhat clean"
+    "clean": "hardhat clean",
+    "prettier": "prettier --write 'contracts/**/*.sol'"
   },
   "dependencies": {
     "dotenv": "^16.0.1"
