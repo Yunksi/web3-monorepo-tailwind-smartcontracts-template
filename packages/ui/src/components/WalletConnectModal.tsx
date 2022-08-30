@@ -18,7 +18,7 @@ const useIsMounted = () => {
 export function WalletConnectModal({}: IWalletConnectModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const isMounted = useIsMounted();
-  const {connect, error, isLoading, connectors} = useConnect();
+  const {connect, isLoading, connectors} = useConnect();
   const {disconnect} = useDisconnect();
   const {address, isConnected} = useAccount();
 
@@ -105,7 +105,12 @@ export function WalletConnectModal({}: IWalletConnectModalProps) {
           </div>
         </Dialog>
       </Transition>
-      <Button onClick={handleConnect}>{!isLoading && address ? 'Disconnect wallet' : 'Connect wallet'}</Button>
+      <Button
+        onClick={handleConnect}
+        className="!rounded-full text-xs font-medium tracking-wider outline-none transition-all hover:-translate-y-0.5"
+      >
+        {!isLoading && address ? 'Disconnect'.toUpperCase() : 'Connect'.toUpperCase()}
+      </Button>
     </>
   );
 }
