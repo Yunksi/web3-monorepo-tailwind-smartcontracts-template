@@ -1,6 +1,7 @@
 {
   "singleQuote": true,
-  "bracketSpacing": false,
+  "bracketSpacing": true,
   "printWidth": 120,
+  "jsxSingleQuote": true,
   "plugins": ["prettier-plugin-tailwindcss"]
 }
