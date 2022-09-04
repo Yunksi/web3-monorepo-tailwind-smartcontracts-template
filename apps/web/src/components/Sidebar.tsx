@@ -1,6 +1,5 @@
 import React from 'react';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
-import Blockies from 'react-blockies';
 import { Disclosure } from '@headlessui/react';
 import { useAccount } from 'wagmi';
 import { HiOutlineChevronDown, HiOutlineHome } from 'react-icons/hi';
@@ -10,6 +9,7 @@ interface ISidebarProps {}
 
 export const Sidebar: React.FC<ISidebarProps> = ({}) => {
   const { address, isConnected } = useAccount();
+
   return (
     <>
       <aside className='dark:bg-dark top-0 left-0 z-40 hidden h-full max-w-full border-r border-dashed border-gray-200 dark:border-gray-700 sm:w-80 xl:fixed xl:block xl:w-72 2xl:w-80'>
