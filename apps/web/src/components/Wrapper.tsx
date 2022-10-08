@@ -1,38 +1,45 @@
 import { useTheme } from 'next-themes';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Layout, Navbar } from 'ui';
-import { Sidebar } from './Sidebar';
+import { Sidebar } from './sidebar';
 
-interface IContentLayoutProps {
+interface IWrapperProps {
   children: React.ReactNode;
 }
 
-const ContentLayout: React.FC<IContentLayoutProps> = ({ children }) => {
-  return (
-    <main className='3xl:px-12 min-h-[100vh] px-4 pt-24 pb-16 sm:px-6 sm:pb-20 lg:px-8 xl:px-10 xl:pb-20'>
-      {children}
-    </main>
-  );
-};
-
-type Props = {
-  children: React.ReactNode;
-};
-
-const Wrapper: React.FC<Props> = ({ children }) => {
+const Wrapper: React.FC<IWrapperProps> = ({ children }) => {
+  const [enabled, setEnabled] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  const test = (): void => {
-    console.log(theme);
-    theme === 'light' ? setTheme('dark') : setTheme('light');
+  const changeTheme = () => {
+    setEnabled((prev) => !prev);
   };
+
+  useEffect(() => {
+    switch (theme) {
+      case 'light':
+        setEnabled(false);
+        break;
+      case 'dark':
+        setEnabled(true);
+        break;
+      default:
+        break;
+    }
+  }, []);
+
+  useEffect(() => {
+    enabled ? setTheme('dark') : setTheme('light');
+  }, [enabled]);
 
   return (
     <>
       <Layout>
-        <Navbar test={test} />
+        <Navbar themeSwitch={changeTheme} isDarkMode={enabled} />
         <Sidebar />
-        <ContentLayout>{children}</ContentLayout>
+        <main className='3xl:px-12 min-h-[100vh] px-4 pt-24 pb-16 sm:px-6 sm:pb-20 lg:px-8 xl:px-10 xl:pb-20'>
+          {children}
+        </main>
       </Layout>
     </>
   );

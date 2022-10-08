@@ -1,18 +1,29 @@
-import '../styles/globals.css';
-// include styles from the ui package
-import 'ui/styles.css';
-import 'overlayscrollbars/css/overlayscrollbars.min.css';
-
+import React from 'react';
+import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { WagmiProvider } from 'ui';
+import { QueryClientProvider, QueryClient, Hydrate } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
-import React from 'react';
-import Head from 'next/head';
-import Wrapper from '../components/Wrapper';
+import '../styles/globals.css';
+import 'ui/styles.css';
+import 'overlayscrollbars/css/overlayscrollbars.min.css';
+
+import { ToastContainer, WagmiProvider } from 'ui';
+import Wrapper from '@/components/wrapper';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 20 * 1000,
+          },
+        },
+      })
+  );
   const [pageLoaded, setPageLoaded] = useState(false);
   useEffect(() => {
     setPageLoaded(true);
@@ -22,13 +33,24 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>{Component.displayName}</title>
-        <link rel='icon' href='/favicon.ico' />
+        {/* maximum-scale 1 meta tag need to prevent ios input focus auto zooming */}
+        <meta name='viewport' content='width=device-width, initial-scale=1 maximum-scale=1' />
       </Head>
-      <WagmiProvider>
-        <ThemeProvider attribute='class'>
-          {pageLoaded && <Wrapper>{<Component {...pageProps} />}</Wrapper>}
-        </ThemeProvider>
-      </WagmiProvider>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <ThemeProvider attribute='class' enableSystem={false} defaultTheme='light'>
+            <WagmiProvider>
+              {pageLoaded && (
+                <Wrapper>
+                  {<Component {...pageProps} />}
+                  <ToastContainer className='mt-[50px]' />
+                </Wrapper>
+              )}
+            </WagmiProvider>
+          </ThemeProvider>
+          <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+        </Hydrate>
+      </QueryClientProvider>
     </>
   );
 }

@@ -2,8 +2,9 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": ["^build", "$NEXT_PUBLIC_URL"],
-      "outputs": ["dist/**", ".next/**"]
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"],
+      "env": ["NEXT_PUBLIC_LOCK_CONTRACT_ADDRESS"]
     },
     "lint": {
       "outputs": []

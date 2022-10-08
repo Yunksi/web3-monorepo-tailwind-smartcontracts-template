@@ -1,13 +1,21 @@
 import React from 'react';
 import { chain, configureChains, createClient, WagmiConfig } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
+import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 
+const alchemyKey = process.env.ALCHEMY_API_KEY;
+
 const { chains, provider, webSocketProvider } = configureChains(
-  [chain.goerli, chain.polygonMumbai],
-  [publicProvider()]
+  [chain.goerli, chain.polygonMumbai, chain.hardhat, chain.localhost],
+  [
+    alchemyProvider({
+      apiKey: alchemyKey,
+    }),
+    publicProvider(),
+  ]
 );
 
 const client = createClient({

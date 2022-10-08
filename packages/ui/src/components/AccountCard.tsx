@@ -7,7 +7,7 @@ export interface IAccountCardProps {
 
 export const AccountCard: React.FC<IAccountCardProps> = ({ address }) => {
   return (
-    <div className='flex items-center rounded-lg bg-gray-100 p-5 dark:bg-slate-500'>
+    <div className='dark:bg-light-dark flex items-center rounded-lg bg-gray-100 p-5'>
       {address && (
         <>
           <Blockies seed={address} className='relative h-10 w-10 shrink-0 overflow-hidden rounded-full' size={10} />
