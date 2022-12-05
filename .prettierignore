@@ -1,3 +1,7 @@
 .next
 .vercel
 .husky
+
+typechain
+node_modules
+dist
