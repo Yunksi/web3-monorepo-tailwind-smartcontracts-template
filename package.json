@@ -23,6 +23,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "clean": "turbo run clean && rm -rf node_modules",
     "dev": "turbo run dev --parallel",
     "format": "prettier --write \"**/*.{ts,tsx,md,js,mjs}\"",
     "lint": "turbo run lint",

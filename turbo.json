@@ -4,12 +4,13 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"],
-      "env": ["NEXT_PUBLIC_LOCK_CONTRACT_ADDRESS"]
+      "env": ["ALCHEMY_API_URL"]
     },
     "lint": {
       "outputs": []
     },
     "dev": {
+      "dependsOn": ["^build"],
       "cache": false
     },
     "clean": {

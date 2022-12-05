@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
+    "@tanstack/react-query": "^4.13.0",
+    "@tanstack/react-query-devtools": "4.13.0",
     "axios": "^1.1.2",
     "date-fns": "^2.29.3",
     "ethers": "^5.7.0",
@@ -26,10 +28,10 @@
     "react-blockies": "^1.4.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
-    "react-query": "^3.39.2",
     "react-table": "^7.8.0",
+    "recharts": "^2.1.14",
     "ui": "workspace:*",
-    "wagmi": "^0.6.4"
+    "wagmi": "^0.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
@@ -58,6 +60,6 @@
     "tailwind-config": "workspace:*",
     "tailwindcss": "^3.1.8",
     "tsconfig": "workspace:*",
-    "typescript": "^4.7.4"
+    "typescript": "^4.9.3"
   }
 }
